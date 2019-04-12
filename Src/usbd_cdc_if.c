@@ -170,7 +170,7 @@ volatile int begin = 0;
 volatile int end = 0;
 volatile char bufferState = Free;
 
-void writeCharToBuffer(char c) {
+void writeCharToBuffer(uint8_t c) {
 	if (begin == end && bufferState == Busy) {
 		//_Error_Handler();
 		return;
@@ -183,11 +183,12 @@ void writeCharToBuffer(char c) {
 }
 
 
-int readCharFromBuffer() {
+int16_t readCharFromBuffer() {
 	if (begin == end && bufferState == Free) {
         return -1;
 	}
-	char c = buffer[begin];
+	uint8_t c = buffer[begin];
+
 	begin = (begin +1)%BUFFER_SIZE;
 	if(begin == end){
 		bufferState = Free;
