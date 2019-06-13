@@ -19,6 +19,7 @@
 "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o"
 "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
 "Src/CDC_MPU6050.o"
+"Src/USB_tools.o"
 "Src/main.o"
 "Src/sd_hal_mpu6050.o"
 "Src/stm32f1xx_hal_msp.o"

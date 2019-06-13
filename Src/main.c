@@ -115,35 +115,35 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/*
-		 int c = readCharFromBuffer();
-		 if (c==-1) continue;
+		   int c = readCharFromBuffer();
+		   if (c==-1) continue;
 
-		 if (c == '1') {
-		 char* temp = "You pressed 1!\r\n";
+		   if (c == '1') {
+		   char* temp = "You pressed 1!\r\n";
 
-		 CDC_Transmit_FS(temp, strlen(temp));
-		 HAL_Delay(100);
-		 }
-		 if (c == '2') {
+		   CDC_Transmit_FS(temp, strlen(temp));
+		   HAL_Delay(100);
+		   }
+		   if (c == '2') {
 
-		 char* temp = "Blinking led 10 times.\r\n";
+		   char* temp = "Blinking led 10 times.\r\n";
 
-		 CDC_Transmit_FS(temp, strlen(temp));
-		 HAL_Delay(100);
-		 for (int i = 0; i < 10; i++) {
-		 GPIOC->ODR ^= 1 << 13;
-		 HAL_Delay(100);
-		 GPIOC->ODR ^= 1 << 13;
-		 HAL_Delay(800);
-		 }
-		 }
+		   CDC_Transmit_FS(temp, strlen(temp));
+		   HAL_Delay(100);
+		   for (int i = 0; i < 10; i++) {
+		   GPIOC->ODR ^= 1 << 13;
+		   HAL_Delay(100);
+		   GPIOC->ODR ^= 1 << 13;
+		   HAL_Delay(800);
+		   }
+		   }
 
-		 if (c == 'h') {
-		 char* temp = "Help not supported yet!\r\n";
+		   if (c == 'h') {
+		   char* temp = "Help not supported yet!\r\n";
 
-		 CDC_Transmit_FS(temp, strlen(temp));
-		 HAL_Delay(100);
-		 }
+		   CDC_Transmit_FS(temp, strlen(temp));
+		   HAL_Delay(100);
+		   }
 		 */
 
 		/* USER CODE END WHILE */
@@ -181,7 +181,7 @@ void SystemClock_Config(void) {
 	/**Initializes the CPU, AHB and APB busses clocks
 	 */
 	RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
-			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+	                              | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
 	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
 	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
 	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
@@ -227,7 +227,7 @@ static void MX_I2C2_Init(void) {
 
 }
 
-/** Configure pins as 
+/** Configure pins as
  * Analog
  * Input
  * Output
@@ -241,14 +241,10 @@ static void MX_GPIO_Init(void) {
 	GPIO_InitTypeDef GPIO_InitStruct;
 
 	/* GPIO Ports Clock Enable */
-	__HAL_RCC_GPIOC_CLK_ENABLE()
-	;
-	__HAL_RCC_GPIOD_CLK_ENABLE()
-	;
-	__HAL_RCC_GPIOA_CLK_ENABLE()
-	;
-	__HAL_RCC_GPIOB_CLK_ENABLE()
-	;
+	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOD_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
@@ -266,21 +262,21 @@ static void MX_GPIO_Init(void) {
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 	/*Configure GPIO pins : PA0 PA1 PA2 PA3
-	 PA4 PA5 PA6 PA7
-	 PA8 PA9 PA10 PA15 */
+	   PA4 PA5 PA6 PA7
+	   PA8 PA9 PA10 PA15 */
 	GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3
-			| GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8
-			| GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_15;
+	                      | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8
+	                      | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_15;
 	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 	/*Configure GPIO pins : PB0 PB1 PB2 PB12
-	 PB13 PB14 PB15 PB3
-	 PB4 PB5 PB6 PB7
-	 PB8 PB9 */
+	   PB13 PB14 PB15 PB3
+	   PB4 PB5 PB6 PB7
+	   PB8 PB9 */
 	GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_12
-			| GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15 | GPIO_PIN_3 | GPIO_PIN_4
-			| GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9;
+	                      | GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15 | GPIO_PIN_3 | GPIO_PIN_4
+	                      | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9;
 	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
 	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -368,7 +364,7 @@ void assert_failed(uint8_t* file, uint32_t line)
 {
 	/* USER CODE BEGIN 6 */
 	/* User can add his own implementation to report the file name and line number,
-	 tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+	   tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 	/* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
