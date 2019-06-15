@@ -49,9 +49,9 @@ uint8_t USB_printlnStr(char *str) {
 uint8_t USB_printf( const char * format, ... ) {
 	char buffer[120];
 	va_list args;
-	va_start (args, format);
-	vsprintf (buffer,format, args);
-	va_end (args);
+	va_start(args, format);
+	vsprintf(buffer, format, args);
+	va_end(args);
 	return USB_printStr(buffer);
 }
 

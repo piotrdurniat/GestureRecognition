@@ -114,37 +114,6 @@ int main(void) {
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
-		/*
-		   int c = readCharFromBuffer();
-		   if (c==-1) continue;
-
-		   if (c == '1') {
-		   char* temp = "You pressed 1!\r\n";
-
-		   CDC_Transmit_FS(temp, strlen(temp));
-		   HAL_Delay(100);
-		   }
-		   if (c == '2') {
-
-		   char* temp = "Blinking led 10 times.\r\n";
-
-		   CDC_Transmit_FS(temp, strlen(temp));
-		   HAL_Delay(100);
-		   for (int i = 0; i < 10; i++) {
-		   GPIOC->ODR ^= 1 << 13;
-		   HAL_Delay(100);
-		   GPIOC->ODR ^= 1 << 13;
-		   HAL_Delay(800);
-		   }
-		   }
-
-		   if (c == 'h') {
-		   char* temp = "Help not supported yet!\r\n";
-
-		   CDC_Transmit_FS(temp, strlen(temp));
-		   HAL_Delay(100);
-		   }
-		 */
 
 		/* USER CODE END WHILE */
 
