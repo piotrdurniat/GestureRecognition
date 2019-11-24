@@ -37,7 +37,7 @@ void loop()
     tab1[0] = c;
     tab1[1] = 0;
 
-    USB_printStr(tab1);
+    USB_printlnStr(tab1);
 
     switch (c)
     {
@@ -60,5 +60,11 @@ void loop()
     case 'h':
         USB_printlnStr("Help not supported yet!");
         break;
+
+    case 'f':
+        USB_printlnStr("Testing float printf");
+        USB_printf("%.4f\n\r", 20.8922);
+        break;
+
     }
 }
