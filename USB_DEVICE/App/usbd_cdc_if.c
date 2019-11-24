@@ -132,7 +132,37 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length);
 static int8_t CDC_Receive_FS(uint8_t* pbuf, uint32_t *Len);
 
 /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
+#define BUFFER_SIZE 32
+#define Free 0
+#define Busy 1
+char buffer[BUFFER_SIZE];
+volatile int begin = 0;
+volatile int end = 0;
+volatile char bufferState = Free;
 
+void writeCharToBuffer(uint8_t c) {
+	if (begin == end && bufferState == Busy) {
+		//_Error_Handler();
+		return;
+	}
+	buffer[end] = c;
+	end = (end + 1) % BUFFER_SIZE;
+	if (begin == end) {
+		bufferState = Busy;
+	}
+}
+
+int16_t readCharFromBuffer() {
+	if (begin == end && bufferState == Free) {
+    return -1;
+	}
+	uint8_t c = buffer[begin];
+	begin = (begin + 1) % BUFFER_SIZE;
+	if (begin == end) {
+		bufferState = Free;
+	}
+	return c;
+}
 /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
 
 /**
@@ -263,6 +293,11 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
 static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
+
+  for (uint32_t i = 0; i < *Len; i++) {
+    writeCharToBuffer(Buf[i]);
+  }
+
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
   return (USBD_OK);
