@@ -55,6 +55,7 @@ static void MX_I2C2_Init(void);
 /* USER CODE BEGIN PFP */
 extern void setup(void);
 extern void loop(void);
+extern void sosLed(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -226,7 +227,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	sosLed();
   /* USER CODE END Error_Handler_Debug */
 }
 
