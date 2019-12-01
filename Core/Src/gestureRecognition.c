@@ -112,7 +112,7 @@ void printSensorData()
 
 void loop()
 {
-    printSensorData();
+    //printSensorData();
 
     HAL_Delay(100);
 
