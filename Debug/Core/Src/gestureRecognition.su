@@ -1,0 +1,6 @@
+gestureRecognition.c:19:6:setup	16	static
+gestureRecognition.c:33:6:blinkLED	24	static
+gestureRecognition.c:42:6:USBCommunication	16	static
+gestureRecognition.c:73:6:sosLed	8	static
+gestureRecognition.c:84:6:printSensorData	32	static
+gestureRecognition.c:113:6:loop	8	static

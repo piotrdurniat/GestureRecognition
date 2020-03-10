@@ -1,0 +1,7 @@
+USB_tools.c:21:6:USB_setTransmitFailureMode	16	static
+USB_tools.c:28:6:USB_setMaxBusyTime	16	static
+USB_tools.c:32:9:USB_printStr	16	static
+USB_tools.c:36:9:USB_printlnStr	24	static
+USB_tools.c:44:9:USB_printf	136	static
+USB_tools.c:53:9:USB_printChar	16	static
+USB_tools.c:57:9:USB_write	32	static
